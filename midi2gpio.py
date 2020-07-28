@@ -12,7 +12,18 @@ class MIDI2GPIO:
     gpio_interface = GPIOInterface()
 
     def __init__(self):
+        self.wake_gpio()
         self.open_port(self.port_name)
+        
+
+    def wake_gpio(self):
+        """
+        GPIO waits for FALLING_EDGE events to trigger messages
+        so we have to RAISE it first
+        """
+
+        self.gpio_interface.enqueue_message(mido.Message('note_on', note=60))
+        self.gpio_interface.send_message()
 
     def receive_msg(self, port):
         """

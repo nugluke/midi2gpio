@@ -35,9 +35,6 @@ class GPIOInterface:
         self.pi_instance.set_mode(self.gpio_pin, pigpio.OUTPUT)
         self.pi_instance.callback(self.gpio_pin, pigpio.FALLING_EDGE, self.send_message)
 
-        #Run function first time so FALLING_EDGE event start working
-        first_note = threading.Thread(target=self.send_message(self.gpio_pin, 0, 0), daemon=True)
-        first_note.start()
         
 
 
@@ -47,7 +44,7 @@ class GPIOInterface:
         """
         self.message_buffer.put(message.bytes())
 
-    def send_message(self, gpio, level, tick):
+    def send_message(self, gpio=0, level=0, tick=0):
         """
         Sends message from queue to pin
         """
