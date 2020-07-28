@@ -31,7 +31,6 @@ class MIDI2GPIO:
         """
         while True:
             msg = port.receive()
-            print(msg)
             self.gpio_interface.enqueue_message(msg)
         
     def open_port(self, port_name):

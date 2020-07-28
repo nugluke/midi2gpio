@@ -50,6 +50,7 @@ class GPIOInterface:
         """
         message = self.message_buffer.get()
         self.send_to_pin(message)
+        print(message)
 
     def send_to_pin(self, message):
         """
