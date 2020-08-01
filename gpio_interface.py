@@ -23,14 +23,13 @@ class GPIOInterface:
     """
     Class to handle gpio communication
     """
-
-    gpio_pin = 16
     MIDI_BAUDRATE = 31250
 
-    def __init__(self):
+    def __init__(self, gpio_pin):
         self.message_buffer = queue.Queue()
         # set_midi_baudrate(self.MIDI_BAUDRATE)
 
+        self.gpio_pin = gpio_pin
         self.pi_instance = pigpio.pi()
         self.pi_instance.set_mode(self.gpio_pin, pigpio.OUTPUT)
         self.pi_instance.callback(self.gpio_pin, pigpio.FALLING_EDGE, self.send_message)

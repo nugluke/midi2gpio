@@ -1,5 +1,6 @@
 import mido
 from gpio_interface import GPIOInterface
+import config
 
 
 
@@ -8,8 +9,8 @@ class MIDI2GPIO:
     Class to receive MIDI from virtual port and send to GPIO 
     """
 
-    port_name = 'PY-MIDI-IN-PORT'
-    gpio_interface = GPIOInterface()
+    port_name = config.PORT_NAME
+    gpio_interface = GPIOInterface(config.GPIO_PIN)
 
     def __init__(self):
         self.wake_gpio()
