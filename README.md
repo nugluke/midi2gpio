@@ -1,6 +1,6 @@
 # Midi2GPIO
 
-This application runs a virtual MIDI port using rtmidi and send received messages to RPI GPIO. Tested using RPI 3
+Python application that hosts a virtual MIDI port using rtmidi and send received messages to Raspberry's GPIO. Tested using RPI 3
 
 ## Installing
 
