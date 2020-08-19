@@ -2,8 +2,10 @@
 
 Python application that hosts a virtual MIDI port using rtmidi and sends received messages to Raspberry's GPIO. Tested using RPI 3
 
-## Installing
+## Setting Up
 
+
+* You will need a MIDI DIN connector, a 220Ω resistor and a MIDI cable to connect your RPI's GPIO to your synths. [This scheme works well](https://github.com/nugluke/midi2gpio/blob/master/assets/midi-out-schema.png). 
 * Run `make install` in the project's folder.
 
 ## Running
